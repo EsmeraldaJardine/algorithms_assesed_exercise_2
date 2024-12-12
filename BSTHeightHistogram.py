@@ -50,12 +50,32 @@ def main():
     instance = BSTHeightHistogram()
     n = int(input("Enter a positive integer: "))
     permutations = instance.get_permutations(n)
+    height_count = {}
+    height_total = 0
+    bst_count = 0
     for permutation in permutations:
         print("permutations: ",permutation)
         bst = instance.make_bst(permutation)
         print(f"Permutation: {permutation} -> BST: {bst}")
         height = instance.calculate_height(bst)
         print("height: ", height)
+        if height not in height_count:
+            height_count[height]= 0
+        else:
+            height_count[height]+=1
+
+        height_total += height
+        bst_count+=1
+    average_height = height_total/bst_count
+    print("height   |   frequency")
+    print("_______________________")
+    for height in sorted(height_count.keys()):
+        print(height,"       |  ", height_count[height]) #values are off by 1?
+
+    print(" Average height of BTSs: ", average_height)
+
+        
+    
     
         
         
