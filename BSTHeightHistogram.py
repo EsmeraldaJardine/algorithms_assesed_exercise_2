@@ -60,7 +60,7 @@ def main():
         height = instance.calculate_height(bst)
         print("height: ", height)
         if height not in height_count:
-            height_count[height]= 0
+            height_count[height]= 1
         else:
             height_count[height]+=1
 
@@ -70,7 +70,7 @@ def main():
     print("height   |   frequency")
     print("_______________________")
     for height in sorted(height_count.keys()):
-        print(height,"       |  ", height_count[height]) #values are off by 1?
+        print(height,"       |  ", height_count[height]) #cannot get counts for heights 0 and 1
 
     print(" Average height of BTSs: ", average_height)
 
