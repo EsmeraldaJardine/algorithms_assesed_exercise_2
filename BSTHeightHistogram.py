@@ -6,8 +6,10 @@ class BSTHeightHistogram:
     def make_bst(self, permutation):
         bst = None
         for key in permutation:
-            print("key: ", key)
+            #print("key: ", key)
             bst = self.insert_node(bst, key)
+            #print("bst: ", bst)
+        return bst
 
     def insert_node(self, bst, key):
         if bst is None:
@@ -16,17 +18,9 @@ class BSTHeightHistogram:
             bst[1] = self.insert_node(bst[1], key)
         else:
             bst[2]= self.insert_node(bst[2], key)
-        
-        print(bst)
         return bst
          
                 
-                         
-                
-        
-         
-        
-        
 
     def get_permutations(self, n):
             n_permutations = list(permutations(range(1,n+1)))
@@ -49,6 +43,7 @@ def main():
     for permutation in permutations:
         print("permutations: ",permutation)
         bst = instance.make_bst(permutation)
+        print(f"Permutation: {permutation} -> BST: {bst}")
         
         
 if __name__ == "__main__":
