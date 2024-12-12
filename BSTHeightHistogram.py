@@ -19,6 +19,16 @@ class BSTHeightHistogram:
         else:
             bst[2]= self.insert_node(bst[2], key)
         return bst
+    
+    def calculate_height(self,bst):
+        if bst is None or (bst[1] is None and bst[2] is None):
+            return 0
+
+        l_subtree_height = self.calculate_height(bst[1])
+        r_subtree_height = self.calculate_height(bst[2])
+        return 1+ max(l_subtree_height,r_subtree_height)
+
+            
          
                 
 
@@ -44,6 +54,9 @@ def main():
         print("permutations: ",permutation)
         bst = instance.make_bst(permutation)
         print(f"Permutation: {permutation} -> BST: {bst}")
+        height = instance.calculate_height(bst)
+        print("height: ", height)
+    
         
         
 if __name__ == "__main__":
