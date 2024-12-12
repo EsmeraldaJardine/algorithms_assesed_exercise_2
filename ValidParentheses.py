@@ -28,7 +28,7 @@ def process_string(s):
 
 
 def main():
-    s = "{}" #add string here
+    s = input("Enter a parentheses string: ")
     process_string(s) 
 if __name__ == "__main__":
     main()
