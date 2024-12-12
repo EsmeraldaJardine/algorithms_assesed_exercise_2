@@ -1,4 +1,6 @@
 from itertools import permutations
+#this solution creates a binary tree with each node being represented as a nested list
+# [key, none, none ] = [key, left_child, right_child]
 
 class BSTHeightHistogram:
 
@@ -11,7 +13,7 @@ class BSTHeightHistogram:
 
     def insert_node(self, bst, key):
         if bst is None:
-            return [key, None, None]
+            return [key, None, None] 
         elif key < bst[0]:
             bst[1] = self.insert_node(bst[1], key)
         else:
